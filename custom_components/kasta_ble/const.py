@@ -1,0 +1,15 @@
+"""Constants for the Kasta Bluetooth integration."""
+
+DOMAIN = "kasta_ble"
+
+CONF_DATABASE_PATH = "database_path"
+CONF_KEEPALIVE_INTERVAL = "keepalive_interval"
+CONF_POLL_INTERVAL = "poll_interval"
+DEFAULT_DATABASE_PATH = "kasta/ble.db"
+DEFAULT_KEEPALIVE_INTERVAL = 30
+DEFAULT_POLL_INTERVAL = 0
+DEFAULT_CONTROLLER_ID = 0x8000
+
+MESH_SERVICE = "0000fef1-0000-1000-8000-00805f9b34fb"
+CONTROL_POINT_1 = "c4edc000-9daf-11e3-8003-00025b000b00"
+CONTROL_POINT_2 = "c4edc000-9daf-11e3-8004-00025b000b00"

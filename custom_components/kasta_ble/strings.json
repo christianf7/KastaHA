@@ -1,0 +1,57 @@
+{
+  "title": "Kasta Bluetooth",
+  "config": {
+    "abort": {
+      "already_configured": "This Kasta mesh and Bluetooth bearer are already configured."
+    },
+    "error": {
+      "cannot_connect": "Home Assistant cannot currently reach this Bluetooth bearer.",
+      "database_not_found": "The database was not found inside the Home Assistant environment.",
+      "invalid_database": "The file is not a supported Kasta ble.db or does not contain usable mesh credentials."
+    },
+    "step": {
+      "database": {
+        "description": "Bearer {address} was discovered. Copy ble.db to Home Assistant, then enter its path.",
+        "data": {
+          "database_path": "Database path"
+        },
+        "data_description": {
+          "database_path": "A relative path is resolved below /config. Example: kasta/ble.db"
+        }
+      },
+      "user": {
+        "description": "Select any reachable Kasta CSRmesh bearer and the copied Android database.",
+        "data": {
+          "address": "Bluetooth bearer",
+          "database_path": "Database path"
+        },
+        "data_description": {
+          "address": "Any powered Kasta node advertising the CSRmesh service can carry commands for the entire mesh.",
+          "database_path": "A relative path is resolved below /config. Example: kasta/ble.db"
+        }
+      }
+    }
+  },
+  "options": {
+    "error": {
+      "cannot_connect": "Home Assistant cannot currently reach this Bluetooth bearer.",
+      "database_not_found": "The database was not found inside the Home Assistant environment.",
+      "invalid_database": "The file is not a supported Kasta ble.db or does not contain usable mesh credentials."
+    },
+    "step": {
+      "init": {
+        "data": {
+          "address": "Bluetooth bearer address",
+          "database_path": "Database path",
+          "keepalive_interval": "Bearer keepalive interval (seconds)",
+          "poll_interval": "Fallback polling interval (seconds)"
+        },
+        "data_description": {
+          "database_path": "A relative path is resolved below /config.",
+          "keepalive_interval": "Sends one small state request to prevent idle disconnects. 30 seconds is recommended; 0 disables it.",
+          "poll_interval": "0 disables periodic polling. Push updates and one startup synchronization still run."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Only the HACS integration and documentation are published.
+/*
+!/.gitignore
+!/README.md
+!/hacs.json
+!/custom_components/
+/custom_components/*
+!/custom_components/kasta_ble/
+
+# Installation data must never be committed, including within the component.
+*.db
+*.db-*
+*.sqlite*
+*.apk
+*.apks
+*.dex
+*.sock
+.env
+.env.*
+.DS_Store
+__pycache__/
+*.py[cod]
