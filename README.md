@@ -23,7 +23,7 @@ devices are not supported.
 ## Install through HACS
 
 1. Open **HACS → menu → Custom repositories**.
-2. Paste this repository's GitHub URL and choose **Integration** as the type.
+2. Paste `https://github.com/christianf7/KastaHA` and choose **Integration** as the type.
 3. Add the repository, find **Kasta Bluetooth**, and download it.
 4. Restart Home Assistant.
 5. Obtain and copy your database files as explained below.
@@ -283,8 +283,8 @@ the root, with exactly one integration in `custom_components/kasta_ble`.
 Only the integration and documentation are tracked. Local databases, APKs,
 toolkit/research files, virtual environments, and build archives are ignored.
 
-Publish to a public GitHub repository and set the manifest's documentation and
-issue links to that repository. Add a description and topics such as
+The repository URL is [christianf7/KastaHA](https://github.com/christianf7/KastaHA).
+Publish it as a public GitHub repository. Add a description and topics such as
 `home-assistant`, `hacs`, `bluetooth`, and `kasta`. Users can add that URL as a
 HACS custom repository of type Integration. HACS installs from the default
 branch without a separate ZIP or build step. For versioned updates, publish a

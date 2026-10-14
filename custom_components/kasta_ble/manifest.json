@@ -5,16 +5,16 @@
       "service_uuid": "0000fef1-0000-1000-8000-00805f9b34fb"
     }
   ],
-  "codeowners": [],
+  "codeowners": ["@christianf7"],
   "config_flow": true,
   "dependencies": [
     "bluetooth"
   ],
-  "documentation": "https://github.com/REPLACE_ME/kasta-ble-home-assistant",
+  "documentation": "https://github.com/christianf7/KastaHA#readme",
   "domain": "kasta_ble",
   "integration_type": "hub",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/REPLACE_ME/kasta-ble-home-assistant/issues",
+  "issue_tracker": "https://github.com/christianf7/KastaHA/issues",
   "name": "Kasta Bluetooth",
   "requirements": [],
   "single_config_entry": true,
