@@ -115,11 +115,6 @@ Bootloader unlocking can erase the phone, including the database you need.
 
 ### Android emulator
 
-An emulator works only if Kasta can restore or synchronize your existing home
-into it, including the credentials and devices. An empty app installation will
-not work. Confirm that the expected home and device list have been restored.
-Account synchronization support depends on the app version and image.
-
 Use an image that permits root. Google Play Store images prohibit `adb root`;
 Android documents AOSP images as a root-capable alternative. App login may
 depend on Google services, so verify compatibility before relying on this route.
@@ -147,31 +142,6 @@ If present:
 adb pull /data/user/0/com.haneco.ble/databases/ble.db-wal kasta-database/ble.db-wal
 adb pull /data/user/0/com.haneco.ble/databases/ble.db-shm kasta-database/ble.db-shm
 ```
-
-**adbd cannot run as root in production builds** means that image cannot use
-this route. `-writable-system` does not make a production image root-capable.
-Use a suitable image and restore your installation there. The emulator is used
-to obtain files; Home Assistant's adapter/proxy handles actual Bluetooth control.
-
-### Debuggable builds and app exports
-
-If the installed build is explicitly debuggable, `run-as` may allow extraction:
-
-```bash
-adb shell am force-stop com.haneco.ble
-adb shell run-as com.haneco.ble ls -l databases
-mkdir -p kasta-database
-adb exec-out run-as com.haneco.ble cat databases/ble.db > kasta-database/ble.db
-```
-
-Copy `databases/ble.db-wal` and `databases/ble.db-shm` the same way when present.
-**package not debuggable** means this route is unavailable. Normal store builds
-generally do not allow it.
-
-An existing app export is usable if it produces the actual SQLite `ble.db`
-with credentials. An arbitrary JSON export, QR code, account backup, or encrypted
-archive cannot be used directly. A universal non-root extraction method has
-not been verified across Kasta versions.
 
 ### Check the snapshot
 
@@ -275,20 +245,5 @@ power is removed. An unreachable device cannot return brightness through polling
 **Database rejected:** verify it exists inside Home Assistant, passes integrity
 checks, and contains the current home, credentials, and devices. Copy existing
 WAL/SHM companions again while the Android app is stopped.
-
-## Publish this repository
-
-The repository follows HACS's standard layout: `hacs.json` and `README.md` at
-the root, with exactly one integration in `custom_components/kasta_ble`.
-Only the integration and documentation are tracked. Local databases, APKs,
-toolkit/research files, virtual environments, and build archives are ignored.
-
-The repository URL is [christianf7/KastaHA](https://github.com/christianf7/KastaHA).
-Publish it as a public GitHub repository. Add a description and topics such as
-`home-assistant`, `hacs`, `bluetooth`, and `kasta`. Users can add that URL as a
-HACS custom repository of type Integration. HACS installs from the default
-branch without a separate ZIP or build step. For versioned updates, publish a
-GitHub release matching the manifest version. See the
-[official HACS integration requirements](https://www.hacs.dev/docs/publish/integration/).
 
 This is an independent community integration, not an official Kasta product.
