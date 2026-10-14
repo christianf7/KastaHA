@@ -1,7 +1,7 @@
 # Kasta Bluetooth
 
-A Home Assistant integration for local power and brightness control of legacy
-Kasta/Qualcomm CSRmesh lights. Install through HACS, select a Bluetooth bearer,
+A Home Assistant integration for local power and brightness control legacy
+Kasta Smart Living/Qualcomm CSRmesh lights. Install through HACS, select a Bluetooth bearer,
 and supply a copy of your own Android `ble.db` database. Each device and saved
 Kasta group becomes a light entity, and physical switches update state through
 Bluetooth notifications.
